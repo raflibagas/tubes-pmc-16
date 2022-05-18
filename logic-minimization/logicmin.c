@@ -325,7 +325,6 @@ void add_to_table()
                     {
                         if(find_data_matrix(&((&implicants_table)->brr),i,find_data_array(&(p->paired_minterms),j))==1)
                         {
-                            printf("case 0\n");
                             continue;
                         }
                         else
