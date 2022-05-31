@@ -83,8 +83,9 @@ void simplify_btn_clicked(GtkWidget *widget, gpointer data)
     max_minterms=pow(2,bits_size);
     
     // Mengidentifikasi input jumlah variabel
-    if(bits_size==0)
+    if(bits_size<1 || bits_size>8)
     {
+        gtk_entry_set_text(GTK_ENTRY(result_entry),"Err Entry!");
         return;
     }
 
@@ -98,6 +99,7 @@ void simplify_btn_clicked(GtkWidget *widget, gpointer data)
     }
     if(entry_err_handling(atoi(token)))
     {
+        gtk_entry_set_text(GTK_ENTRY(result_entry),"Err Entry!");
         return;
     }
 
@@ -116,6 +118,7 @@ void simplify_btn_clicked(GtkWidget *widget, gpointer data)
             create_array(&minterms_input,1,atoi(token));
             if(entry_err_handling(atoi(token)))
             {
+                gtk_entry_set_text(GTK_ENTRY(result_entry),"Err Entry!");
                 return;
             }
         }
@@ -136,6 +139,7 @@ void simplify_btn_clicked(GtkWidget *widget, gpointer data)
     }
     if(entry_err_handling(atoi(token)))
     {
+        gtk_entry_set_text(GTK_ENTRY(result_entry),"Err Entry!");
         return;
     }
     initialize_array(&dont_cares_input,max_minterms);
@@ -153,6 +157,7 @@ void simplify_btn_clicked(GtkWidget *widget, gpointer data)
             create_array(&dont_cares_input,1,atoi(token));
             if(entry_err_handling(atoi(token)))
             {
+                gtk_entry_set_text(GTK_ENTRY(result_entry),"Err Entry!");
                 return;
             }
         }
